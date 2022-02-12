@@ -2,7 +2,6 @@ package servPattern;
 import java.io.*;
 import java.net.*;
 
-
 public class ServeurTCP extends Thread{
 
 	private static int nbConnexions = 0;

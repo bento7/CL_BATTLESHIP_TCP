@@ -1,0 +1,75 @@
+Grille 
+1 -> 10 Horizon
+A -> J Vertical 
+
+1 PA : 		5 c
+1 croiseur : 	4 c
+1 contre torp : 3 c
+1 s m 	: 	3 c
+1 torp : 	2 c
+
+IBoat 
+
+PA 
+cood d'ancrage: A5
+direction : H / V
+size = 5
+boolean = True / False
+
+[0, 0, 0, 0, 0]
+
+[1, 0, 0, 0, 0]
+
+Board 
+1 -> rouge
+0 -> gris
+
+Fleet ArrayList 
+[PA, C, CT, SM, T]
+
+
+
+
+
+
+
+--------------------------------
+--------------------------------
+Transfert d'informations prévu
+--------------------------------
+--------------------------------
+
+1/ Choix Serveur owner vs. client
+1.1  / Si serveur owner : dire combien de client on attend
+1.2  / Si client : donner l'adresse IP à rentrer
+
+Envoi des IP
+Attente de tous les joueurs
+
+2/ Informations joueurs 
+2.1 : Flottes, positions etc.. 
+2.2 : gestion des erreurs (bateau mal positionné) en local
+
+Envoi des informations au serveur
+
+3/ Lancement de la partie 
+
+J1 envoie (cood, JX) | Jall\J1 : waiting
+
+Serveur renvoie à J1 (valide/!valide)
+Si !valide : recommence
+
+Si valide : 
+J1 : waiting (i.e. Jall are waiting)
+Serveur envoie à Jall (cood, JX, touché/coulé)
+
+Recommence while len(Jall)>2
+
+4/ Fin partie 
+
+Cas où JX quitte avant la fin : 
+Arrêt de la partie pour Jall
+
+Back to MenuScreen
+
+
