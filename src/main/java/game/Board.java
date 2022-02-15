@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Board {
+public class Board implements IBoard{
     final int size;
     Cell[][] myBoard;
 
@@ -34,7 +34,7 @@ public class Board {
         for (int row = 0; row < myBoard.length; row++) {
             for (int col = 0; col < myBoard.length; col++) {
                 Cell cell = new Cell();
-                cell.setState(Cell.CellState.UNKNOWN);
+                cell.setState(Cell.CellState.CLEAR);
                 myBoard[row][col] = cell;
                 cells.add(cell);
             }
@@ -80,7 +80,7 @@ public class Board {
     }
 
     private void display(Cell[][] board) {
-        System.out.print("  X  ");
+        System.out.print("  X ");
         for (int i = 0; i < board.length; i++) {
             System.out.print("  " + i);
         }
@@ -93,11 +93,9 @@ public class Board {
 
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[row].length; col++) {
-                if (col == 0) System.out.print(row + " |");
+                if (col == 0) System.out.print(row + " | ");
                 Cell cell = board[row][col];
-//                System.out.println(cell.getState());
                 System.out.print("  " + cell.getState().getRepresentation());
-//            System.out.println();
         }
         System.out.println();
     }
