@@ -1,11 +1,14 @@
 package game;
 
+import launchPattern.UnContexte;
+import servPattern.IContext;
+
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Board implements IBoard{
+public class Board implements IBoard, IContext {
     final int size;
     Cell[][] myBoard;
 
@@ -75,11 +78,35 @@ public class Board implements IBoard{
         }
     }
 
-    public void print() {
-        display(myBoard);
+    public String print() {
+        String echiquier = "";
+        echiquier += "  X ";
+        for (int i = 0; i < myBoard.length; i++) {
+            echiquier += "  " + String.valueOf(i);
+        }
+//        System.out.println(echiquier);
+        echiquier += "\n";
+        echiquier +="Y  ";
+        for (int i = 0; i < myBoard.length; i++) {
+            echiquier +="---";
+        }
+        echiquier += "\n";
+
+        for (int row = 0; row < myBoard.length; row++) {
+            for (int col = 0; col < myBoard[row].length; col++) {
+                if (col == 0) echiquier += String.valueOf(row) + " | ";
+                Cell cell = myBoard[row][col];
+                echiquier += "  " + cell.getState().getRepresentation();
+//                echiquier += "\n";
+            }
+            echiquier += "\n";
+        }
+        return echiquier;
+//        display(myBoard);
     }
 
     private void display(Cell[][] board) {
+
         System.out.print("  X ");
         for (int i = 0; i < board.length; i++) {
             System.out.print("  " + i);
@@ -99,10 +126,9 @@ public class Board implements IBoard{
         }
         System.out.println();
     }
-
-
-
-
+    }
+    public int demandeDepot(int unDepot){
+        return unDepot*7;
     }
 
 }

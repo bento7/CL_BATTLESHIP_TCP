@@ -8,7 +8,7 @@ public class MainClient {
 		ClientTCP myClt = new ClientTCP("localhost", 6666 );
 		
 		if ( myClt.connecterAuServeur() ) {
-			myClt.transmettreChaine("PING");
+			myClt.transmettreChaine("Initialiser 7");
 			myClt.deconnecterDuServeur();
 		}
 	

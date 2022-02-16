@@ -69,10 +69,10 @@ public class ServeurTCP extends Thread{
 	} 
 	
 
-	public IProtocole getProtocole() {
-		return protocole;
-	}
-
+//	public IProtocole getProtocole() {
+//		return protocole;
+//	}
+//
 	public IContext getContexte() {
 		return contexte;
 	}

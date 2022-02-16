@@ -1,4 +1,7 @@
 package launchPattern;
+import game.Board;
+import game.IBoard;
+import servPattern.ServeurTCP;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -11,27 +14,23 @@ import servPattern.IProtocole;
 
 public class ProtocolePingPong implements IProtocole {
 
-	public void execute( IContext c , InputStream unInput , OutputStream unOutput ) {
-		
-		String inputReq;
-		BufferedReader is = new BufferedReader(new InputStreamReader(
-				unInput));
-		PrintStream os = new PrintStream(unOutput);
-		try {
-			String valeurExpediee = "";
+    public int valeurDemandee;
+    public ServeurTCP monServeur;
+    public PrintStream os;
 
-			if ((inputReq = is.readLine()) != null) {
-				System.out.println(" Ordre Recu " + inputReq);
-				String chaines[] = inputReq.split(" ");
+    public ProtocolePingPong(int valeurDemandee, ServeurTCP monServeur, PrintStream os) {
+        this.valeurDemandee = valeurDemandee;
+        this.monServeur = monServeur;
+        this.os = os;
+    }
 
-				if (chaines[0].contentEquals("PING")) {
-					valeurExpediee = "PONG";
-					System.out.println(" Reponse serveur "	+ valeurExpediee);
-				}
-				os.println(valeurExpediee);
-			}
-		} catch ( Exception e) {
-			System.out.println(" Pb d'exception ");
-		}			
-	}
+    @Override
+    public void run(){
+        System.out.println(" valeur demandee  " + valeurDemandee);
+        String valeurDepot = ((IBoard) monServeur.getContexte()).print();
+        String valeurExpediee = "" + valeurDepot;
+        System.out.println(" Depot dans serveur " + valeurExpediee);
+        os.println(valeurExpediee);
+        System.out.println(monServeur);
+    }
 }
