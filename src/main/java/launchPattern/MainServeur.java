@@ -1,12 +1,11 @@
 package launchPattern;
-
+import game.Board;
 import servPattern.ServeurTCP;
 
 public class MainServeur {
 
 	public static void main(String[] args) {
-		ServeurTCP myServ = new ServeurTCP(6666 );
-		myServ.start();
-		
+		Board myboard = new Board(10);
+		myboard.openBoard();
 	}
 }

@@ -2,6 +2,7 @@ package game;
 
 import launchPattern.UnContexte;
 import servPattern.IContext;
+import servPattern.ServeurTCP;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
@@ -127,8 +128,9 @@ public class Board implements IBoard, IContext {
         System.out.println();
     }
     }
-    public int demandeDepot(int unDepot){
-        return unDepot*7;
+    public void openBoard() {
+        ServeurTCP myServ = new ServeurTCP(this,6666 );
+        myServ.start();
     }
 
 }

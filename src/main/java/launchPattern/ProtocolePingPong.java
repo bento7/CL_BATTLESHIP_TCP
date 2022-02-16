@@ -29,7 +29,7 @@ public class ProtocolePingPong implements IProtocole {
         System.out.println(" valeur demandee  " + valeurDemandee);
         String valeurDepot = ((IBoard) monServeur.getContexte()).print();
         String valeurExpediee = "" + valeurDepot;
-        System.out.println(" Depot dans serveur " + valeurExpediee);
+        System.out.println(" Depot dans serveur \n" + valeurExpediee);
         os.println(valeurExpediee);
         System.out.println(monServeur);
     }

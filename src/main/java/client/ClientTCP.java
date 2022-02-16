@@ -57,12 +57,17 @@ public class ClientTCP {
 	
 	public String transmettreChaine(String uneChaine) {        
 		String msgServeur = null;
+		String chaineRetour = "";
 		try {
 			System.out.println( "Requete client : " + uneChaine );
 			socOut.println( uneChaine );
 			socOut.flush();
 			msgServeur = socIn.readLine();
-			System.out.println( "Reponse serveur : " + msgServeur );
+			while( msgServeur != null && msgServeur.length() >0) {
+				chaineRetour += msgServeur + "\n";
+				msgServeur = socIn.readLine();
+			}
+			System.out.println("Client msgServeur \n" + chaineRetour);
 
 		} catch (UnknownHostException e) {
 			System.err.println("Serveur inconnu : " + e);

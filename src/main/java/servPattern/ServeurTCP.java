@@ -22,10 +22,10 @@ public class ServeurTCP extends Thread{
 		maxConnexions = 10;
 	} 
 
-	public ServeurTCP(IContext b,IProtocole p, int port) {
+	public ServeurTCP(IContext b, int port) {
 		this(port);
 		contexte = b;
-		protocole = p;
+//		protocole = p;
 	}
 
 
