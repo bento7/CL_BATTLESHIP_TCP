@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Board implements IBoard, IContext {
+public class Board implements IBoard{
     final int size;
     Cell[][] myBoard;
 
@@ -128,9 +128,6 @@ public class Board implements IBoard, IContext {
         System.out.println();
     }
     }
-    public void openBoard() {
-        ServeurTCP myServ = new ServeurTCP(this,6666 );
-        myServ.start();
-    }
+
 
 }

@@ -1,11 +1,12 @@
 package launchPattern;
+import game.Battleship;
 import game.Board;
 import servPattern.ServeurTCP;
 
 public class MainServeur {
 
 	public static void main(String[] args) {
-		Board myboard = new Board(10);
-		myboard.openBoard();
+		Battleship mybattle = new Battleship(3);
+		mybattle.openBattleship();
 	}
 }

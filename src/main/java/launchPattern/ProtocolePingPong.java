@@ -1,5 +1,6 @@
 package launchPattern;
 import game.Board;
+import game.IBattleship;
 import game.IBoard;
 import servPattern.ServeurTCP;
 import java.io.BufferedReader;
@@ -26,11 +27,11 @@ public class ProtocolePingPong implements IProtocole {
 
     @Override
     public void run(){
-        System.out.println(" valeur demandee  " + valeurDemandee);
-        String valeurDepot = ((IBoard) monServeur.getContexte()).print();
-        String valeurExpediee = "" + valeurDepot;
-        System.out.println(" Depot dans serveur \n" + valeurExpediee);
-        os.println(valeurExpediee);
+
+        String battle = ((IBattleship) monServeur.getContexte()).print();
+
+        System.out.println(" Depot dans serveur \n" + battle);
+        os.println(battle);
         System.out.println(monServeur);
     }
 }

@@ -32,6 +32,7 @@ class ProcessusTransaction extends Thread {
 			BufferedReader is = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 			PrintStream os = new PrintStream(clientSocket.getOutputStream());
 			System.out.println("Serveur avec  Client ");
+			System.out.println(clientSocket);
 
 			if ((inputReq = is.readLine()) != null) {
 				System.out.println(" Msg 2 Recu " + inputReq);
