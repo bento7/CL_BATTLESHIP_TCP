@@ -31,7 +31,6 @@ public class Board implements IBoard{
             fleet.add(boat);
         }
 
-
         myBoard = new Cell[size][size];
         List<Cell> cells = new ArrayList<Cell>(size * size);
 
