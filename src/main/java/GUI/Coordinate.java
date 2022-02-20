@@ -31,7 +31,7 @@ public class Coordinate {
     }
 
     public String toString(){
-        return "\nX=" + x + " and Y=" + y;
+        return "\nX=" + x + " and Y=" + y+"\n";
     }
 
 }

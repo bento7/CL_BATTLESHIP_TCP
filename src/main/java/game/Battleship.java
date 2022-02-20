@@ -21,7 +21,6 @@ public class Battleship extends ArrayList<Board> implements IBattleship, IContex
     }
 
     private Board board;
-//    private IContext context;
 
 
     public void generateBattle() {
@@ -32,6 +31,10 @@ public class Battleship extends ArrayList<Board> implements IBattleship, IContex
 
     public String print() {
         return board.print();
+    }
+
+    public boolean shoot(int x, int y) {
+        return board.shooted(x, y);
     }
 
     public void openBattleship() {

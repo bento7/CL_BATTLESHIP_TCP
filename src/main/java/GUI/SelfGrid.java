@@ -1,7 +1,6 @@
 package GUI;
 
 import GUI.BattleGrid;
-import tom.BattleShip;
 import GUI.Coordinate;
 
 import javax.swing.*;
@@ -72,7 +71,7 @@ public class SelfGrid extends BattleGrid {
                     int y3 = (int) yPos3;
 
                     System.out.print(name);
-                    System.out.print("\nLocation (X: " + x + " Y: " + y + ")");
+                    System.out.print("\nLocation (X: " + x + " Y: " + y + ")\n");
 
                     secondNextPoint = new Point((int)(firstPoint.getX()+20),(int)(firstPoint.getY()));
                     thirdNextPoint = new Point((int)(firstPoint.getX()+40),(int)(firstPoint.getY()));

@@ -28,9 +28,11 @@ public class ProtocolePingPong implements IProtocole {
     @Override
     public void run(){
 
+        boolean shooted = ((IBattleship) monServeur.getContexte()).shoot(3,3);
         String battle = ((IBattleship) monServeur.getContexte()).print();
 
         System.out.println(" Depot dans serveur \n" + battle);
+
         os.println(battle);
         System.out.println(monServeur);
     }

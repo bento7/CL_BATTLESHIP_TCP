@@ -13,6 +13,7 @@ public class Board implements IBoard{
     final int size;
     Cell[][] myBoard;
 
+
     public Board(int size) {
 
         if (size <= 0)
@@ -62,8 +63,8 @@ public class Board implements IBoard{
     }
 
 
-    public boolean shoot(int x, int y) {
-        Cell shootedCell = myBoard[x][y];
+    public boolean shooted(int x, int y) {
+        Cell shootedCell = myBoard[y][x];
         switch (shootedCell.getState()) {
             case CLEAR:
             case SHOOTED_WATER:
