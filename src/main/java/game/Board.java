@@ -12,14 +12,14 @@ import java.util.List;
 public class Board implements IBoard{
     final int size;
     Cell[][] myBoard;
+    final String player;
 
-
-    public Board(int size) {
+    public Board(int size,String player) {
 
         if (size <= 0)
             throw new InvalidParameterException("C'est quoi ça une taille négative de plateau?");
         this.size = size;
-
+        this.player = player;
         generateBoard();
     }
 

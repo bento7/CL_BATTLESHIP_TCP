@@ -1,4 +1,5 @@
 package game;
+import jdk.nashorn.internal.runtime.regexp.joni.ast.StringNode;
 import launchPattern.UnContexte;
 import servPattern.IContext;
 import servPattern.ServeurTCP;
@@ -10,24 +11,31 @@ import java.util.List;
 
 public class Battleship extends ArrayList<Board> implements IBattleship, IContext{
     final int nbplayers;
-
+//    List<Board> id = new ArrayList<Board>();
 
     public Battleship(int nbplayers) {
         if (nbplayers <= 0)
             throw new InvalidParameterException("C'est quoi ça un nb de joueurs négatif ou nul?");
         this.nbplayers = nbplayers;
 
-        generateBattle();
+//        generateBattle();
     }
 
     private Board board;
 
 
-    public void generateBattle() {
-        board = new Board(10);
+    public void generateBattle(String player) {
+        board = new Board(10, player);
         this.add(board);
     }
 
+    public String players() {
+        String id = "";
+        for (Board board: this){
+            id += board.player;
+        }
+        return id;
+    }
 
     public String print() {
         return board.print();

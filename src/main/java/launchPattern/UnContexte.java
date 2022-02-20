@@ -20,7 +20,7 @@ public class UnContexte implements IContext {
 
 
 
-    public IProtocole getProtocole() throws IOException {
+    public IProtocole getProtocole(String addr) throws IOException {
         String comType = chaine[0];
         String value = "";
         if(chaine.length > 1){
@@ -28,7 +28,7 @@ public class UnContexte implements IContext {
         }
         switch (comType){
             case "Initialiser":
-                return new ProtocolePingPong(parseInt(value), monServeur, os);
+                return new ProtocolePingPong(addr, monServeur, os);
 
             default:
                 os.println("Erreur de protocole..... \n");

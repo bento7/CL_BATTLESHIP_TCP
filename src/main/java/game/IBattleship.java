@@ -5,5 +5,8 @@ public interface IBattleship {
 
     public String print();
 
+    void generateBattle(String player);
+
+    public String players();
 
 }

@@ -33,7 +33,6 @@ class ProcessusTransaction extends Thread {
 			PrintStream os = new PrintStream(clientSocket.getOutputStream());
 			System.out.println("Serveur avec  Client ");
 			System.out.println(clientSocket);
-			
 
 			if ((inputReq = is.readLine()) != null) {
 				System.out.println(" Msg 2 Recu " + inputReq);
@@ -41,7 +40,7 @@ class ProcessusTransaction extends Thread {
 				System.out.println(" Ordre Recu " + chaines[0]);
 				try {
 					contexte = new UnContexte(chaines, monServeurTCP, os);
-					setProtocoleEchange(contexte.getProtocole());
+					setProtocoleEchange(contexte.getProtocole(clientSocket.getInetAddress().toString()));
 					protocoleEchange.run();
 				}catch (IOException e){
 					os.println("Erreur de protocole..... \n");
