@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
+    /**
+     * Classe générant une grille de jeu pour chaque joueur
+     */
     final int size;
     Cell[][] myBoard;
     final String player;

@@ -10,6 +10,9 @@ import java.util.Collections;
 import java.util.List;
 
 public class Battleship extends ArrayList<Board> implements IBattleship, IContext{
+    /**
+     * Classe regroupant les boards des joueurs
+     */
     final int nbplayers;
 //    List<Board> id = new ArrayList<Board>();
 
@@ -17,8 +20,6 @@ public class Battleship extends ArrayList<Board> implements IBattleship, IContex
         if (nbplayers <= 0)
             throw new InvalidParameterException("C'est quoi ça un nb de joueurs négatif ou nul?");
         this.nbplayers = nbplayers;
-
-//        generateBattle();
     }
 
     private Board board;
