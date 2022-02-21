@@ -24,9 +24,21 @@ public class Battleship extends ArrayList<Board> implements IBattleship, IContex
     private Board board;
 
 
-    public void generateBattle(String player) {
-        board = new Board(10, player);
-        this.add(board);
+    public void generateBattle(String player){
+//        for (Board board: this) {
+//            if (board.player == player){
+//                throw new IllegalAccessException("Vous êtes déjà connecté");
+//            }
+//        }
+
+        if (this.size() < this.nbplayers) {
+            board = new Board(10, player);
+            this.add(board);
+        } // il faut faire connecter qu'une seule fois chaque joueur
+        else {
+            throw new InvalidParameterException("Trop de joueurs connectés");
+        }
+
     }
 
     public String players() {

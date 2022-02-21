@@ -1,15 +1,9 @@
 package launchPattern;
-import game.Board;
 import game.IBattleship;
-import game.IBoard;
 import servPattern.ServeurTCP;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+
 import java.io.PrintStream;
 
-import servPattern.IContext;
 import servPattern.IProtocole;
 
 
@@ -32,7 +26,7 @@ public class ProtocolePingPong implements IProtocole {
 //        String battle = ((IBattleship) monServeur.getContexte()).print();
         ((IBattleship) monServeur.getContexte()).generateBattle(this.addr);
         System.out.println(this.addr);
-        ((IBattleship) monServeur.getContexte()).generateBattle("118712");
+//        ((IBattleship) monServeur.getContexte()).generateBattle("118712");
         String id = ((IBattleship) monServeur.getContexte()).players();
         System.out.println(" Depot dans serveur \n" + id);
 

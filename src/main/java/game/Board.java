@@ -1,15 +1,10 @@
 package game;
 
-import launchPattern.UnContexte;
-import servPattern.IContext;
-import servPattern.ServeurTCP;
-
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class Board implements IBoard{
+public class Board {
     final int size;
     Cell[][] myBoard;
     final String player;
