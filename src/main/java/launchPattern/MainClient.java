@@ -8,8 +8,8 @@ public class MainClient {
 		ClientTCP myClt = new ClientTCP("localhost", 6666 );
 		
 		if ( myClt.connecterAuServeur() ) {
-			myClt.transmettreChaine("PING");
-			myClt.deconnecterDuServeur();
+			myClt.transmettreChaine("shoot");
+//			myClt.deconnecterDuServeur();
 		}
 	
 	}

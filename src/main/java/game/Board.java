@@ -2,31 +2,35 @@ package game;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class Board implements IBoard{
+public class Board {
+    /**
+     * Classe générant une grille de jeu pour chaque joueur
+     */
     final int size;
     Cell[][] myBoard;
+    final String player;
 
-    public Board(int size) {
+    public Board(int size,String player) {
 
         if (size <= 0)
             throw new InvalidParameterException("C'est quoi ça une taille négative de plateau?");
         this.size = size;
-
+        this.player = player;
         generateBoard();
     }
 
 
-
+    /**
+     * void permettant d'initialiser les Cell qui contituent le Board
+     */
     public void generateBoard() {
         Fleet fleet = new Fleet();
         for (int i =0; i < 5; i++) {
             Boat boat = new Boat(i+1,i,size/5);// destiné à être demandé proprement au joueur concerné
             fleet.add(boat);
         }
-
 
         myBoard = new Cell[size][size];
         List<Cell> cells = new ArrayList<Cell>(size * size);
@@ -58,9 +62,14 @@ public class Board implements IBoard{
 
     }
 
-
-    public boolean shoot(int x, int y) {
-        Cell shootedCell = myBoard[x][y];
+    /**
+     * Fonction permettant changer l'état des Cell grâce au tir
+     * @param x abscisse
+     * @param y ordonnée
+     * @return boolean pour savoir si un navire a été touché
+     */
+    public boolean shooted(int x, int y) {
+        Cell shootedCell = myBoard[y][x];
         switch (shootedCell.getState()) {
             case CLEAR:
             case SHOOTED_WATER:
@@ -75,11 +84,39 @@ public class Board implements IBoard{
         }
     }
 
-    public void print() {
-        display(myBoard);
+    /**
+     *
+     * @return une String pour afficher le board du joueur en console
+     */
+    public String print() {
+        String echiquier = "";
+        echiquier += "  X ";
+        for (int i = 0; i < myBoard.length; i++) {
+            echiquier += "  " + String.valueOf(i);
+        }
+//        System.out.println(echiquier);
+        echiquier += "\n";
+        echiquier +="Y  ";
+        for (int i = 0; i < myBoard.length; i++) {
+            echiquier +="---";
+        }
+        echiquier += "\n";
+
+        for (int row = 0; row < myBoard.length; row++) {
+            for (int col = 0; col < myBoard[row].length; col++) {
+                if (col == 0) echiquier += String.valueOf(row) + " | ";
+                Cell cell = myBoard[row][col];
+                echiquier += "  " + cell.getState().getRepresentation();
+//                echiquier += "\n";
+            }
+            echiquier += "\n";
+        }
+        return echiquier;
+//        display(myBoard);
     }
 
     private void display(Cell[][] board) {
+
         System.out.print("  X ");
         for (int i = 0; i < board.length; i++) {
             System.out.print("  " + i);
@@ -99,10 +136,7 @@ public class Board implements IBoard{
         }
         System.out.println();
     }
-
-
-
-
     }
+
 
 }
