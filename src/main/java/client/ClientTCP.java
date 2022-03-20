@@ -104,5 +104,4 @@ public class ClientTCP {
 		}
 		return chaineRetour;
 	}
-	
 }

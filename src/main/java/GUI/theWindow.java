@@ -126,6 +126,4 @@ public class theWindow extends JFrame implements ActionListener {
         textArea.append(now + " Player 1: " + text + newline); // Write the text in zone de visuel <- message à envoyer
         textField.setText(""); // Empty the zone d'édition
     }
-
 }
-

@@ -29,7 +29,8 @@ public class UnContexte implements IContext {
         switch (comType){
             case "Initialiser":
                 return new ProtocolePingPong(addr, monServeur, os);
-
+            case "shoot":
+                return new ProtocoleShoot(addr, monServeur, os);
             default:
                 os.println("Erreur de protocole..... \n");
                 throw new IOException("Protocole Inexistant");

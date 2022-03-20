@@ -22,7 +22,9 @@ public class Board {
     }
 
 
-
+    /**
+     * void permettant d'initialiser les Cell qui contituent le Board
+     */
     public void generateBoard() {
         Fleet fleet = new Fleet();
         for (int i =0; i < 5; i++) {
@@ -60,7 +62,12 @@ public class Board {
 
     }
 
-
+    /**
+     * Fonction permettant changer l'état des Cell grâce au tir
+     * @param x abscisse
+     * @param y ordonnée
+     * @return boolean pour savoir si un navire a été touché
+     */
     public boolean shooted(int x, int y) {
         Cell shootedCell = myBoard[y][x];
         switch (shootedCell.getState()) {
@@ -77,6 +84,10 @@ public class Board {
         }
     }
 
+    /**
+     *
+     * @return une String pour afficher le board du joueur en console
+     */
     public String print() {
         String echiquier = "";
         echiquier += "  X ";

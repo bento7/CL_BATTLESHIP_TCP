@@ -1,19 +1,17 @@
 package launchPattern;
+
 import game.IBattleship;
+import servPattern.IProtocole;
 import servPattern.ServeurTCP;
 
 import java.io.PrintStream;
 
-import servPattern.IProtocole;
-
-
-public class ProtocolePingPong implements IProtocole {
-
+public class ProtocoleShoot implements IProtocole {
     public String addr;
     public ServeurTCP monServeur;
     public PrintStream os;
 
-    public ProtocolePingPong(String addr, ServeurTCP monServeur, PrintStream os) {
+    public ProtocoleShoot(String addr, ServeurTCP monServeur, PrintStream os) {
         this.monServeur = monServeur;
         this.os = os;
         this.addr = addr;
@@ -23,8 +21,9 @@ public class ProtocolePingPong implements IProtocole {
     public void run(){
 
         ((IBattleship) monServeur.getContexte()).generateBattle("1");
-        System.out.println(this.addr);
         ((IBattleship) monServeur.getContexte()).generateBattle("2");
+
+        System.out.println(this.addr);
         String id = ((IBattleship) monServeur.getContexte()).players();
 
 //        String battle = ((IBattleship) monServeur.getContexte()).print();
@@ -33,9 +32,11 @@ public class ProtocolePingPong implements IProtocole {
         os.println(id);
 //        os.println(battle);
         boolean shooted = ((IBattleship) monServeur.getContexte()).shoot(3,3,"1");
-        String battle = ((IBattleship) monServeur.getContexte()).print("2");
-
+        String battle = ((IBattleship) monServeur.getContexte()).print("1");
+        String board = ((IBattleship) monServeur.getContexte()).print("2");
         os.println(battle);
+        os.println(board);
 //        System.out.println(monServeur);
     }
 }
+

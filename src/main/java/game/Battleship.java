@@ -1,13 +1,9 @@
 package game;
-import jdk.nashorn.internal.runtime.regexp.joni.ast.StringNode;
-import launchPattern.UnContexte;
 import servPattern.IContext;
 import servPattern.ServeurTCP;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class Battleship extends ArrayList<Board> implements IBattleship, IContext{
     /**
@@ -42,6 +38,15 @@ public class Battleship extends ArrayList<Board> implements IBattleship, IContex
 
     }
 
+    public Board getBoard(String id) {
+        for (Board board : this) {
+            if (id == board.player) {
+                return board;
+            }
+        }
+        return new Board(0,"0");
+    }
+
     public String players() {
         String id = "";
         for (Board board: this){
@@ -50,11 +55,13 @@ public class Battleship extends ArrayList<Board> implements IBattleship, IContex
         return id;
     }
 
-    public String print() {
+    public String print(String id) {
+        Board board = getBoard(id);
         return board.print();
     }
 
-    public boolean shoot(int x, int y) {
+    public boolean shoot(int x, int y,String id) {
+        Board board = getBoard(id);
         return board.shooted(x, y);
     }
 
