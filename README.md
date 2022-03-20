@@ -2,7 +2,7 @@
 
 Le projet développé est un jeu de bataille navale en ligne via un serveur TCP.
 
-Le jeu n'est actuellement pas foncitonnel. Néanmoins la communication via le protocole TCP entre le client et le serveur est foncitonnelle.
+Le jeu n'est actuellement pas fonctionnel. Néanmoins la communication via le protocole TCP entre le client et le serveur est fonctionnelle.
 
 Pour mettre en oeuvre cette relation nous avons respecté le Pattern Strategy. Il consiste à utiliser des interfaces telle que "IContexte" pour disposer d'un serveur TCP multitâches. Il peut servir à faire tourner ce jeu ainsi qu'autre chose selon la demande du client et le protocole exécuté par la suite.
 
